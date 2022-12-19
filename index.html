@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nasty | Project</title>
+    <style>
+        body{
+            background-color: beige;
+        }
+        .main{
+            width: 400px;
+            height: 400px;
+            margin: auto;
+        }
+        .box{
+            background: rgb(59, 131, 232);
+            width: 400px;
+            height: 400px;
+            margin: 50px auto;
+            box-shadow: 15px 15px 10px #444, inset 15px 15px 10px #555;
+            display: grid;
+            grid-template-columns: auto auto auto auto auto;
+            border-radius: 10px;
+        }
+        .item{
+            width: 80px;
+            height: 80px;
+            text-align: center;
+            line-height: 80px;
+            font-size: 40px;
+        }
+        .hands{
+            width: 240px;
+            height: 240px;
+            margin: -368px auto;
+            position: relative;
+            z-index: 10;
+            opacity: .8s;
+        }
+        .dot{
+            background: #000;
+            width: 30px;
+            height: 30px;
+            border-radius: 20px;
+            position: absolute;
+            z-index: 1;
+            margin: 105px;
+            filter: drop-shadow(7px 1px 2px rgba(0,0,0,0.5));
+        }
+        .min-hand{
+            margin: auto;
+            height: 0;
+            width: 0;
+            border-right: 10px solid transparent;
+            border-left: 10px solid transparent;
+            border-bottom: 120px solid #000;
+            transform: rotate(0deg);
+            transform-origin: center bottom;
+            filter: drop-shadow(7px 1px 2px rgba(0,0,0,0.5));
+        }
+        .hour-hand{
+            margin: -90px auto;
+            height: 0;
+            width: 0;
+            border-right: 10px solid transparent;
+            border-left: 10px solid transparent;
+            border-bottom: 90px solid #000;
+            transform: rotate(270deg);
+            transform-origin: center bottom;
+            filter: drop-shadow(7px 1px 2px rgba(0,0,0,0.5));
+        }
+        .sec-hand{
+            margin: -100px auto;
+            height: 0;
+            width: 0;
+            border-right: 5px solid transparent;
+            border-left: 5px solid transparent;
+            border-bottom: 100px solid #000;
+            transform: rotate(0deg);
+            transform-origin: center bottom;
+            filter: drop-shadow(7px 1px 2px rgba(0,0,0,0.5));
+        }
+        .item{
+            filter: drop-shadow(5px 1px 1px rgba(0,0,0,0.5));
+        }
+        #brand-name{
+            font-size: 25px;
+            text-align: center;
+            font-family: cursive;
+            color: black;
+            font-weight:600;
+        }
+        #date{
+            background-color: #999;
+            color: #222;
+            padding: 10px;
+            font-family: cursive;
+            font-size: 30px;
+            border-radius: 10px;
+            box-shadow: inset 5px 1px 1px rgba(0,0,0,0.5);
+        }
+
+        @media only screen and (max-width:400px) {
+            .main{
+                transform: scale(0.8);
+                margin-left: -12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main">
+        <div class="box">
+            <div class="item"></div>
+            <div class="item" id="time11">XI</div>
+            <div class="item" id="time12">XII</div>
+            <div class="item" id="time1">I</div>
+            <div class="item"></div>
+            <div class="item">X</div>
+            <div class="item"></div>
+            <div class="item" id="brand-name">Cartier</div>
+            <div class="item"></div>
+            <div class="item">II</div>
+            <div class="item">IX</div>
+            <div class="item"></div>
+            <div class="item" id="center"></div>
+            <div class="item"></div>
+            <div class="item">III</div>
+            <div class="item">VII</div>
+            <div class="item"></div>
+            <div class="item" id="date-dad">
+                <span id="date">19</span>
+            </div>
+            <div class="item"></div>
+            <div class="item">IV</div>
+            <div class="item"></div>
+            <div class="item">VII</div>
+            <div class="item">VI</div>
+            <div class="item">V</div>
+            <div class="item"></div>
+        </div>
+        <div class="hands">
+            <div class="dot"></div>
+            <div class="min-hand" id="m-h"></div>
+            <div class="hour-hand"></div>
+            <div class="sec-hand" id="s-h"></div>
+        </div>
+    </div>
+    <a href="./nasty.html" download>aaaa</a>
+    <script>
+        let sec_count = 0
+        let min_count = 0
+        let i = 0
+        // let arr = [6,12,18,24,30]
+        let arr = [6,12,18,24,30,36,42,48,54,60,66,72,78,84,90,96,102,108,114,120,126,132,138,144,150,156,162,168,174,180,186,192,198,204,210,216,222,228,234,240,246,252,258,264,270,276,282,288,294,300,306,312,318,324,330,336,342,348,354,360]
+        function sec_hand(){
+            
+            if(i<arr.length){
+                document.getElementById('s-h').style.transform =`rotate(${arr[i]}deg)`
+                if(arr[i]===360){
+                    document.getElementById('m-h').style.transform = `rotate(${min_count+=6}deg)`
+                    console.log('first',min_count)
+                }
+                i++
+            }
+            else{
+                i=0
+                document.getElementById('s-h').style.transform =`rotate(${arr[i]}deg)`
+                i=1
+            }
+
+        }
+        setInterval(sec_hand,1000)
+    </script>
+</body>
+</html>
