@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nasty | Project</title>
+    <style>
+        body{
+            background-color: beige;
+        }
+        .main{
+            width: 400px;
+            height: 400px;
+            margin: auto;
+        }
+        .box{
+            background: rgb(59, 131, 232);
+            width: 400px;
+            height: 400px;
+            margin: 50px auto;
+            box-shadow: 15px 15px 10px #444, inset 15px 15px 10px #555;
+            display: grid;
+            grid-template-columns: auto auto auto auto auto;
+            border-radius: 10px;
+        }
+        .item{
+            width: 80px;
+            height: 80px;
+            text-align: center;
+            line-height: 80px;
+            font-size: 40px;
+        }
+        .hands{
+            width: 240px;
+            height: 240px;
+            margin: -368px auto;
+            position: relative;
+            z-index: 10;
+            opacity: .8s;
+        }
+        .dot{
+            background: #000;
+            width: 30px;
+            height: 30px;
+            border-radius: 20px;
+            position: absolute;
+            z-index: 1;
+            margin: 105px;
+            filter: drop-shadow(7px 1px 2px rgba(0,0,0,0.5));
+        }
+        .min-hand{
+            margin: auto;
+            height: 0;
+            width: 0;
+            border-right: 10px solid transparent;
+            border-left: 10px solid transparent;
+            border-bottom: 120px solid #000;
+            transform: rotate(0deg);
+            transform-origin: center bottom;
+            filter: drop-shadow(7px 1px 2px rgba(0,0,0,0.5));
+        }
+        .hour-hand{
+            margin: -90px auto;
+            height: 0;
+            width: 0;
+            border-right: 10px solid transparent;
+            border-left: 10px solid transparent;
+            border-bottom: 90px solid #000;
+            transform: rotate(270deg);
+            transform-origin: center bottom;
+            filter: drop-shadow(7px 1px 2px rgba(0,0,0,0.5));
+        }
+        .sec-hand{
+            margin: -100px auto;
+            height: 0;
+            width: 0;
+            border-right: 5px solid transparent;
+            border-left: 5px solid transparent;
+            border-bottom: 100px solid #000;
+            transform: rotate(0deg);
+            transform-origin: center bottom;
+            filter: drop-shadow(7px 1px 2px rgba(0,0,0,0.5));
+        }
+        .item{
+            filter: drop-shadow(5px 1px 1px rgba(0,0,0,0.5));
+        }
+        #brand-name{
+            font-size: 25px;
+            text-align: center;
+            font-family: cursive;
+            color: black;
+            font-weight:600;
+        }
+        #date{
+            background-color: #999;
+            color: #222;
+            padding: 10px;
+            font-family: cursive;
+            font-size: 30px;
+            border-radius: 10px;
+            box-shadow: inset 5px 1px 1px rgba(0,0,0,0.5);
+        }
+        .digi{
+            width: 335px;
+            display: grid;
+            grid-template-columns: auto auto auto auto;
+            margin: 500px auto;
+            gap: 5px;
+        }
+        .digi-item{
+            background-color: bisque;
+            width: 80px;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            font-size: 40px;
+            font-family: Algerian;
+            border-radius: 10px;
+            box-shadow: 5px 1px 1px #222, inset 5px 1px 1px rgba(0,0,0,0.5);
+        }
+        #am_pm{
+            font-size: 20px;
+            display: grid;
+            grid-template-columns: auto;
+        }
+        .am{
+            margin-top: -13px;
+            color: green;
+            font-weight: bold;
+        }
+        .pm{
+            margin-top: -33px;
+            color: green;
+            font-weight: bold;
+        }
+
+        @media only screen and (max-width:400px) {
+            .main{
+                transform: scale(0.8);
+                margin-left: -12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main">
+        <div class="box">
+            <div class="item"></div>
+            <div class="item" id="time11">XI</div>
+            <div class="item" id="time12">XII</div>
+            <div class="item" id="time1">I</div>
+            <div class="item"></div>
+            <div class="item">X</div>
+            <div class="item"></div>
+            <div class="item" id="brand-name">Cartier</div>
+            <div class="item"></div>
+            <div class="item">II</div>
+            <div class="item">IX</div>
+            <div class="item"></div>
+            <div class="item" id="center"></div>
+            <div class="item"></div>
+            <div class="item">III</div>
+            <div class="item">VII</div>
+            <div class="item"></div>
+            <div class="item" id="date-dad">
+                <span id="date"></span>
+            </div>
+            <div class="item"></div>
+            <div class="item">IV</div>
+            <div class="item"></div>
+            <div class="item">VII</div>
+            <div class="item">VI</div>
+            <div class="item">V</div>
+            <div class="item"></div>
+        </div>
+        <div class="hands">
+            <div class="dot"></div>
+            <div class="min-hand" id="m-h"></div>
+            <div class="hour-hand" id="h-h"></div>
+            <div class="sec-hand" id="s-h"></div>
+        </div>
+        <div class="digi" id="digi">
+            <div class="digi-item" id="hr"></div>
+            <div class="digi-item" id="min"></div>
+            <div class="digi-item" id="sec"></div>
+            <div class="digi-item" id="am_pm">
+                <span class="am" id="am">AM</span>
+                <span class="pm" id="pm">PM</span>
+            </div>
+        </div>
+    </div>   
+    <script>
+        function ss(){
+            let time = new Date()
+            let hr = time.getHours()
+            let min = time.getMinutes()
+            let sec = time.getSeconds()
+            let date = time.getDate()
+            document.getElementById('date').innerHTML = `${date}`
+            document.getElementById('s-h').style.transform = `rotate(${6*sec}deg)`
+            document.getElementById('m-h').style.transform = `rotate(${6*min}deg)`
+            document.getElementById('h-h').style.transform = `rotate(${hr<=12?(hr*30)+(Math.floor(min/12)*6):((hr-12)*30)+(Math.floor(min/12)*6)}deg)`
+            document.getElementById('hr').innerHTML = `${hr<=12?String(hr).padStart(2,'0'):String((hr-12)).padStart(2,'0')}`
+            document.getElementById('min').innerHTML = `${String(min).padStart(2,'0')}`
+            document.getElementById('sec').innerHTML = `${String(sec).padStart(2,'0')}`
+            let am = document.getElementById('am')
+            let pm = document.getElementById('pm')
+            hr>12?am.style.opacity=0.05:pm.style.opacity=0.05
+        }
+        setInterval(ss,1000)
+    </script>
+</body>
+</html>
