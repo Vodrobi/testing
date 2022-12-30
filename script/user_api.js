@@ -1,5 +1,5 @@
 async function getData() {
-    const response = await fetch('/script/userinfo.json');
+    const response = await fetch('/testing/script/userinfo.json');
     const data = await response.json();
     return data;
   }
@@ -15,7 +15,7 @@ submitBtn.addEventListener('click',()=>{
   getData().then(data => {
     for(i=0;i<data.length;i++){
       if(data[Object.keys(data)[i]].username === username && data[Object.keys(data)[i]].password === password){
-        location.href = '/templates/profile.html';
+        location.href = '/testing/templates/profile.html';
       }
     }
     return false;
