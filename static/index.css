@@ -1,0 +1,66 @@
+*{
+    padding: 0;
+    margin: 0;
+    background-color: beige;
+}
+.login-box{
+    width: 300px;
+    margin: 50px auto;
+    font-family: sans-serif;
+}
+fieldset{
+    border: 5px solid #777;
+    border-radius: 20px 20px 0 0;
+}
+legend{
+    margin-left: 20px;
+    font-size: 20px;
+    font-family: sans-serif;
+    font-weight: bold;
+    background-color: lightblue;
+    padding: 5px 10px;
+    border-radius: 10px 10px 0 0;
+}
+.login-box-content{
+    padding: 10px;
+    display: grid;
+    margin-top: 20px;
+}
+label{
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+input{
+    padding: 10px;
+    font-size: 15px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+#err_msg{
+    color: red;
+    font-style: italic;
+    text-align: center;
+    font-size: 14px;
+    display: none;
+}
+input[type="submit"]{
+    cursor: pointer;
+    background-color: limegreen;
+    border-style: none;
+    color: seashell;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+input[type="submit"]:hover{
+    background-color: springgreen;
+}
+
+@media only screen and (max-width: 450px) {
+    *{
+        background-color: beige;
+    }
+    .login-box{
+        transform: scale(1);
+    }
+}
